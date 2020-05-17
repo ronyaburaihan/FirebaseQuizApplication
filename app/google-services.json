@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1016033078652",
+    "firebase_url": "https://quiz-application-168b1.firebaseio.com",
+    "project_id": "quiz-application-168b1",
+    "storage_bucket": "quiz-application-168b1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016033078652:android:1840cefb5c50b95178c8f9",
+        "android_client_info": {
+          "package_name": "com.techdoctorbd.quizapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1016033078652-t5ql4hoo6qom2b3c1aq0qhqabc92pv6t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.techdoctorbd.quizapplication",
+            "certificate_hash": "9c4702db5d7810b216cc06d0e366cfbbd1f8c26a"
+          }
+        },
+        {
+          "client_id": "1016033078652-nm74fo0jdme2dana735qsjdkcnki7lfv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbrxf8BdRTYKHc7QaTx5vhxjgVXtEcz7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1016033078652-nm74fo0jdme2dana735qsjdkcnki7lfv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
