@@ -8,4 +8,6 @@
     <color name="textColorLight">#929292</color>
 
     <color name="white">#FFFFFF</color>
+    <color name="green">#00C853</color>
+    <color name="red">#FF0000</color>
 </resources>

@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.techdoctorbd.quizapplication.Interfaces.QuizItemClickListener;
 import com.techdoctorbd.quizapplication.Models.QuizItem;
 import com.techdoctorbd.quizapplication.R;
 
@@ -18,6 +20,11 @@ import java.util.List;
 public class QuizListAdapter extends RecyclerView.Adapter<QuizListAdapter.QuizViewHolder> {
 
     private List<QuizItem> quizItems;
+    private QuizItemClickListener itemClickListener;
+
+    public QuizListAdapter(QuizItemClickListener itemClickListener){
+        this.itemClickListener = itemClickListener;
+    }
 
     public void setQuizItems(List<QuizItem> quizItems) {
         this.quizItems = quizItems;
@@ -32,7 +39,18 @@ public class QuizListAdapter extends RecyclerView.Adapter<QuizListAdapter.QuizVi
     @Override
     public void onBindViewHolder(@NonNull QuizViewHolder holder, int position) {
         holder.title.setText(quizItems.get(position).getTitle());
-        holder.description.setText(quizItems.get(position).getDescription());
+        String listDesc = quizItems.get(position).getDescription();
+        if (listDesc.length() > 150){
+            listDesc = listDesc.substring(0,150)+" ...";
+        }
+        holder.description.setText(listDesc);
+        String imageUrl = quizItems.get(position).getImageUrl();
+        Glide.with(holder.image.getContext())
+                .load(imageUrl)
+                .centerCrop()
+                .placeholder(R.drawable.ic_placeholder_image)
+                .into(holder.image);
+        holder.difficulty.setText(quizItems.get(position).getDifficulty());
     }
 
     @Override
@@ -43,7 +61,7 @@ public class QuizListAdapter extends RecyclerView.Adapter<QuizListAdapter.QuizVi
             return quizItems.size();
     }
 
-     static class QuizViewHolder extends RecyclerView.ViewHolder{
+     class QuizViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView title,description,difficulty;
         private ImageView image;
@@ -57,6 +75,13 @@ public class QuizListAdapter extends RecyclerView.Adapter<QuizListAdapter.QuizVi
             description = itemView.findViewById(R.id.description_single_list_item);
             difficulty = itemView.findViewById(R.id.difficulty_single_list_item);
             viewButton = itemView.findViewById(R.id.view_button_single_list_item);
+
+            viewButton.setOnClickListener(this);
         }
-    }
+
+         @Override
+         public void onClick(View view) {
+             itemClickListener.onQuizItemClicked(getAdapterPosition(),image,title);
+         }
+     }
 }

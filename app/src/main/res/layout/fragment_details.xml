@@ -9,38 +9,42 @@
 
     <ImageView
         android:id="@+id/image_quiz_details"
-        android:layout_width="match_parent"
-        android:layout_height="256dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:src="@drawable/ic_placeholder_image"
         android:adjustViewBounds="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ContentDescription"/>
+        tools:ignore="ContentDescription"
+        android:transitionName="header_image"/>
 
     <TextView
         android:id="@+id/title_quiz_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/work_sans"
         android:text="@string/quiz_title"
         android:textColor="@color/colorAccent"
         android:textSize="26sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_quiz_details" />
+        app:layout_constraintTop_toBottomOf="@+id/image_quiz_details"
+        android:transitionName="header_title"/>
 
     <TextView
         android:id="@+id/description_quiz_details"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:textSize="16sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/work_sans"
         android:text="@string/quiz_description"
         android:textColor="@color/textColorDark"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_quiz_details" />
 
